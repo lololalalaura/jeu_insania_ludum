@@ -93,8 +93,8 @@ Elle observe. Elle attend.
 
 Pour faire apparaitre/disparaitre le menu de commande, appuyez sur la touche H.</p>
 
-     <style>
-/* On cible la classe du lien */
+    <style>
+/* On cible la classe du lien pour lui donner la FORME exacte d'un bouton */
 .bouton-telechargement {
     background-color: darkred;
     color: white;
@@ -104,18 +104,27 @@ Pour faire apparaitre/disparaitre le menu de commande, appuyez sur la touche H.<
     cursor: pointer;
     margin-top: 30px;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px black;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Ombre légèrement adoucie */
     
-    /* Il faut ajouter ceci pour qu'un lien se comporte comme un bouton */
-    display: inline-block;
-    text-decoration: none; 
-    transition: background-color 0.3s;
+    /* Propriétés cruciales pour qu'un lien devienne un vrai bouton */
+    display: inline-flex;        /* Permet de centrer facilement du texte ou une icône */
+    align-items: center;        /* Centre verticalement le contenu */
+    justify-content: center;    /* Centre horizontalement le contenu */
+    text-decoration: none;      /* Enlève le soulignement du lien */
+    box-sizing: border-box;     /* Aligne proprement les dimensions (paddings/borders) */
+    
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
 }
 
+/* Effet au survol */
 .bouton-telechargement:hover {
-    /* Vous pouvez même éclaircir un peu la couleur au survol pour un meilleur effet */
-    background-color: #8b0000; 
     filter: brightness(1.2);
+}
+
+/* Effet mécanique au clic (effet d'enfoncement comme un vrai bouton) */
+.bouton-telechargement:active {
+    transform: scale(0.98);                  /* Le bouton se tasse très légèrement */
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* L'ombre diminue au clic */
 }
 </style>
 
