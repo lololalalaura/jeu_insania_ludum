@@ -93,41 +93,53 @@ Elle observe. Elle attend.
 
 Pour faire apparaitre/disparaitre le menu de commande, appuyez sur la touche H.</p>
 
-    <style>
-/* On cible la classe du lien pour lui donner la FORME exacte d'un bouton */
+    HTML
+<style>
 .bouton-telechargement {
     background-color: darkred;
     color: white;
-    border: none;
+    
+    /* 1. On ajoute une vraie bordure à l'extérieur */
+    border: 2px solid #5a0000; 
+    
     padding: 15px 30px;
     font-size: 20px;
     cursor: pointer;
     margin-top: 30px;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Ombre légèrement adoucie */
     
-    /* Propriétés cruciales pour qu'un lien devienne un vrai bouton */
-    display: inline-flex;        /* Permet de centrer facilement du texte ou une icône */
-    align-items: center;        /* Centre verticalement le contenu */
-    justify-content: center;    /* Centre horizontalement le contenu */
-    text-decoration: none;      /* Enlève le soulignement du lien */
-    box-sizing: border-box;     /* Aligne proprement les dimensions (paddings/borders) */
+    /* 2. On combine l'ombre extérieure ET une lueur interne pour donner du relief */
+    box-shadow: 
+        2px 2px 10px rgba(0, 0, 0, 0.6),            /* Ombre portée extérieure */
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);    /* Ligne de lumière interne en haut */
     
-    transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; 
+    box-sizing: border-box;
+    
+    /* Un petit effet de texte pour aller avec */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    
+    transition: background-color 0.2s, transform 0.1s, filter 0.2s;
 }
 
 /* Effet au survol */
 .bouton-telechargement:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.15);
+    background-color: #9e0000; /* Devient un poil plus vif */
 }
 
-/* Effet mécanique au clic (effet d'enfoncement comme un vrai bouton) */
+/* Effet d'enfoncement mécanique au clic */
 .bouton-telechargement:active {
-    transform: scale(0.98);                  /* Le bouton se tasse très légèrement */
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* L'ombre diminue au clic */
+    transform: scale(0.97);
+    /* L'ombre extérieure s'écrase et l'ombre interne s'assombrit */
+    box-shadow: 
+        1px 1px 4px rgba(0, 0, 0, 0.6),
+        inset 0 2px 5px rgba(0, 0, 0, 0.5); 
 }
 </style>
-
 <a href="https://github.com/lololalalaura/jeu_insania_ludum/releases/download/jeu/jeu_insania_ludum.zip" download>
     JOUEZ
 </a>
